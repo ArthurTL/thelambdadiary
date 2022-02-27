@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Building my Jetpack in VR : Part 1 &middot; The Lambda Diary</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="https://arthurtl.github.io/thelambdadiary/assets/css/main.min.css">
+		
+		
+		
+		<noscript><link rel="stylesheet" href='https://arthurtl.github.io/thelambdadiary/assets/css/noscript.css' /></noscript>
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='https://arthurtl.github.io/thelambdadiary/' class="logo">The Lambda Diary</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='https://arthurtl.github.io/thelambdadiary/'>The Lambda Diary</a></li>
+        
+        <li><a href='https://arthurtl.github.io/thelambdadiary/#footer'>Contact</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        <li><a href="https://www.instagram.com/arthurtranlambert/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+        
+        
+        <li><a href="https://www.linkedin.com/in/arthurtran-lambert/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        
+        
+        <li><a href="https://github.com/ArthurTL" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">January 8, 2022</span>
+                                
+                                <h1>Building my Jetpack in VR : Part 1</h1>
+                                <p>Or my attempt at implementing a new, non sickness-inducing type of continuous virtual locomotion.</p>
+                            </header>
+                            
+                            <div class="image main"><img src="https://arthurtl.github.io/thelambdadiary/images/jetpack_part1.png" alt="" /></div>
+                            
+                            <p>Of the three locomotion proposals I made in my last post, I found the jetpack the most interesting to actually implement. Using Unity&rsquo;s physics engine, there is something very fun to create and tweak here and I&rsquo;m curious to know if it is really possible to minimize motion sickness using this setup. So let&rsquo;s start coding !</p>
+<p>I&rsquo;ll be using Unity 3D for this project and to port it in VR. But first I&rsquo;ll put my Oculus Quest aside and start creating my basic jetpack functionalities in Unity without thinking about how it&rsquo;ll work in a virtual reality setting. Since most of the controls are button-based, it will be easier to create it independantly and test it on my computer before mapping each action to a button on the VR device. After what I will also add some VR-only functionnalities involving leaning etc.</p>
+<h3 id="1-the-model">1. The model</h3>
+<p>I&rsquo;m starting with the look of my jetpack by creating a simple 3D model using the basic Unity primitives (cylinders, spheres and cubes mainly), and taking care to display the four thrusters and the control joysticks. I then create some custom materials to give it a nice metallic look and some colors and <em>voilà</em>, here&rsquo;s the result :</p>
+<p><img src="https://arthurtl.github.io/thelambdadiary/images/jetpack_model.png" alt="Jetpack Model" title="Jetpack Model"></p>
+<p>It is still fairly rough looking but it will serve as a base for what I&rsquo;m trying to do. There isn&rsquo;t a seat to sit on yet but that will come when I change my player from a capsule to something more realistic. Also I am playing around with the particule system to represent the fire coming out of the thrusters, as you will see in the next videos. This (<a href="https://www.youtube.com/watch?v=8j_NhBVYz8o">https://www.youtube.com/watch?v=8j_NhBVYz8o</a>) tutorial shows at 1min20 how to get a pretty decent fire particle effect so I&rsquo;m basing mine on this!</p>
+<h3 id="2-the-mechanism">2. The Mechanism</h3>
+<p>Our jetpack is created, now it&rsquo;s time to make it fly. I&rsquo;m thinking about using the Physic Engine of Unity to add an upward force to the jetpack when the user presses one button. Actually the jetpack has two thrusters, so each one will be activated by its own button on the controller and will also add a lateral force (that will cancel out when summed if both are pressed). It looks like that in the code :</p>
+<p><img src="https://arthurtl.github.io/thelambdadiary/images/code_1.png" alt="Code 1" title="Code 1"></p>
+<p>As I mentionned I am using keyboard inputs for the moment. This seems to work well for the two main thrusters and the fire particles activate correctly, so I am also doing the same thing for the two additional boosters that are used to move straight forward. And I get this result !</p>
+
+ 
+
+<video width=100% controls autoplay>
+    <source src="https://arthurtl.github.io/thelambdadiary/videos/movie_001.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+<p>Now there are a couple of things that aren&rsquo;t quite right yet. First, because I set each of the thruster to have just enough strength for the jetpack to escape gravity, it really takes off at full speed when both are activated and they sum up. We want to avoid that so either I lower the power of each one individually or I scale the sum of the forces by a factor (like 1.5*(forceLeft+forceRight)). I might go for the latter.</p>
+<p>Then, controlling the jetpack is still complicated because it is quite unstable so I want to add the &ldquo;<em>hover</em>&rdquo; ability to stabilize its altitude. By pressing the spacebar (for now), the user should be able to basically cancel gravity so that it doesn&rsquo;t fall down <em>but</em> it&rsquo;s not only that because in this case the slightest action of the thrusters would propel it into the stratosphere without ever slowing down. My solution was to cancel out <strong>all</strong> forces when no button is pressed so that nothing moves, but I noticed that this sudden change of state doesn&rsquo;t look very natural so at the end I settled for this: in &lsquo;hover&rsquo; mode, all velocities (including angular velocity) decrease rapidly over time to reach a rest state. The code looks like this:</p>
+<p><img src="https://arthurtl.github.io/thelambdadiary/images/code3.png" alt="Code 3" title="Code 3"></p>
+<p>Even outside of hover mode I have to decrease angular and lateral velocities otherwise it gets quickly out of hand when a booster is fired. Also I get some issues with the input responses if I don&rsquo;t put my code in the right &ldquo;Update&rdquo; or &ldquo;FixedUpdate&rdquo; function so I need to be careful. But now activating hover mode looks like this !</p>
+
+ 
+
+<video width=100% controls autoplay>
+    <source src="https://arthurtl.github.io/thelambdadiary/videos/movie_002.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+<p>I just realized I forgot to add some smaller fire effect for when the thrusters enter hover mode, right now it just seems to freeze in the air for no apparent reason.
+Some movements seem rather abrupt when I try to fly the jetpack in first person view, I hope it won&rsquo;t make one instantly nauseous when ported in VR. We&rsquo;ll see. For now I&rsquo;m just playing with parameters such as the thrusters and boosters force and finetuning its piloting.</p>
+<h3 id="3adding-details">3.Adding details</h3>
+<p>There are many things I think I can add to make it more realistic or useable. First I would like the user to be able to rotate not only along the vertical axis, but also along the &lsquo;roll&rsquo;/forward one when only one thruster is fired. I&rsquo;m going to unfreeze rotation along this axis but I don&rsquo;t want to totally allow 6 degrees of freedom as it will start to get complex to handle, not to mention the pilot easily getting stuck upside down. So what I&rsquo;ll add is a way for the jetpack rotation (along x and z axis) to progressively get back to a default &lsquo;rest&rsquo; state when hover mode is activated. Nothing too brutal, just a gentle transition back to normal.</p>
+<p>My new hover function looks like this:</p>
+<p><img src="https://arthurtl.github.io/thelambdadiary/images/code_4.png" alt="Code 4" title="Code 4"></p>
+<p>I&rsquo;m also adding a bit of a downward force when hovering so the jetpack continues to fall slightly while floating.
+And that is the result in game view:</p>
+
+ 
+
+<video width=100% controls autoplay>
+    <source src="https://arthurtl.github.io/thelambdadiary/videos/movie_004.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+<p>There is still some tweaking to make to some of the speeds, but overall I like how it looks!
+Another thing I tried to implement is some kind of &ldquo;jittering&rdquo; when the jetpack goes up to add some realism and make it look like a true engine is doing the work. Unfortunately this can quickly go out of control (it turns out it is really hard to create a realistic movement of this type by increasing or decreasing the y-coordinate every other frame) and I fear this artificial jitter will be very disturbing and disorienting when seen in VR. But I&rsquo;m thinking that we can take advantage of the Occulus device to reimagine this idea, using vibrations not on the display, but on the controller! So be ready for part 2, where I&rsquo;ll focus on porting my jetpack to VR.</p>
+<p>To end this post, this is how the locomotion looks currently with a first person camera attached to the jetpack, now placed into the parkour map!</p>
+
+ 
+
+<video width=100% controls>
+    <source src="https://arthurtl.github.io/thelambdadiary/videos/jetpack_demo.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+
+
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        <section>
+            <h3>Email</h3>
+            <p><a href="mailto:arthur.lambert@telecom-paris.fr">arthur.lambert@telecom-paris.fr</a></p>
+        </section>
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                <li><a href="https://www.instagram.com/arthurtranlambert/" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+                
+                
+                <li><a href="https://www.linkedin.com/in/arthurtran-lambert/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                
+                
+                <li><a href="https://github.com/ArthurTL" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; The Lambda Diary</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Hugo Port: <a href="https://curtistimson.co.uk">curttimson</a></li></ul>
+</div>
+
+
+            </div>
+            
+            
+
+
+
+
+
+
+
+
+
+
+<script src='https://arthurtl.github.io/thelambdadiary/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

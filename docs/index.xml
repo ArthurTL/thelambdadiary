@@ -2,18 +2,76 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>The Lambda Diary</title>
-    <link>https://ArthurTL.github.io/thelambdadiary/</link>
+    <link>https://arthurtl.github.io/thelambdadiary/</link>
     <description>Recent content on The Lambda Diary</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://ArthurTL.github.io/thelambdadiary/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://arthurtl.github.io/thelambdadiary/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Evaluating my VR locomotion</title>
+      <link>https://arthurtl.github.io/thelambdadiary/homework4/</link>
+      <pubDate>Mon, 31 Jan 2022 12:03:34 +0100</pubDate>
+      
+      <guid>https://arthurtl.github.io/thelambdadiary/homework4/</guid>
+      <description>I&amp;rsquo;ve sent my apk to two classmates and also invited some friends to test my VR jetpack at home, here we will discuss about some results and feedback I&amp;rsquo;ve gotten!
+1. Data and procedure Before taking any measure, let&amp;rsquo;s take a step back and remind ourselves what are the goals of my VR locomotion design: I&amp;rsquo;ve chosen a continous, free type of locomotion to increase presence, but also took care of finding a way to reduce motion sickness and fatigue by some means(such as playing seated).</description>
+    </item>
+    
+    <item>
+      <title>Building my Jetpack in VR : Part 2</title>
+      <link>https://arthurtl.github.io/thelambdadiary/lab5-2/</link>
+      <pubDate>Tue, 18 Jan 2022 11:33:40 +0100</pubDate>
+      
+      <guid>https://arthurtl.github.io/thelambdadiary/lab5-2/</guid>
+      <description>Now that the main features are implemented in Unity, it is time to experiment with everything the VR offers!
+1. The controls All things considered, I think it would be better if controlling the jetpack in VR required more than only pressing two types of triggers. I imagine it would remind the feeling of playing on a computer or a game console (where pressing buttons kind of magically makes things happens) too much, when it should require some &amp;ldquo;immersive&amp;rdquo; effort to pilot the engine.</description>
+    </item>
+    
+    <item>
+      <title>Building my Jetpack in VR : Part 1</title>
+      <link>https://arthurtl.github.io/thelambdadiary/lab5/</link>
+      <pubDate>Sat, 08 Jan 2022 14:27:12 +0100</pubDate>
+      
+      <guid>https://arthurtl.github.io/thelambdadiary/lab5/</guid>
+      <description>Of the three locomotion proposals I made in my last post, I found the jetpack the most interesting to actually implement. Using Unity&amp;rsquo;s physics engine, there is something very fun to create and tweak here and I&amp;rsquo;m curious to know if it is really possible to minimize motion sickness using this setup. So let&amp;rsquo;s start coding !
+I&amp;rsquo;ll be using Unity 3D for this project and to port it in VR.</description>
+    </item>
+    
     <item>
       <title>Locomotion in VR</title>
-      <link>https://ArthurTL.github.io/thelambdadiary/homework3/</link>
+      <link>https://arthurtl.github.io/thelambdadiary/homework3/</link>
       <pubDate>Wed, 29 Dec 2021 17:37:11 +0100</pubDate>
       
-      <guid>https://ArthurTL.github.io/thelambdadiary/homework3/</guid>
+      <guid>https://arthurtl.github.io/thelambdadiary/homework3/</guid>
       <description>There are two main ways with which we can approach locomotion in VR: teleportation or &amp;lsquo;free&amp;rsquo; movement. While the latter is more immersive, it also induces more motion sickness so every locomotion design will contain a trade-off between the two. Today I will propose three of them: one of each type as well as one that combines both in some way.
 1.The Dash Gun Teleportation in VR can have two major drawbacks, depending on game design choices.</description>
+    </item>
+    
+    <item>
+      <title>Hyperreality</title>
+      <link>https://arthurtl.github.io/thelambdadiary/homework2/</link>
+      <pubDate>Thu, 16 Dec 2021 11:47:36 +0100</pubDate>
+      
+      <guid>https://arthurtl.github.io/thelambdadiary/homework2/</guid>
+      <description>Watching Keiichi Matsuda&amp;rsquo;s video &amp;ldquo;HYPER-REALITY&amp;rdquo; (https://www.youtube.com/watch?v=YJg02ivYzSs) was as fascinating as it was utterly chilling. The top-notch editing definitively helped to sell me on the likelihood of a future with technology so ubiquitous that we would constantly see the world through Mixed Reality (and all the dangers that comes with it). The abuses really are numerous in this video, but let&amp;rsquo;s try to find some other scenarios where such technology could create massive problems.</description>
+    </item>
+    
+    <item>
+      <title>The Ultimate Display</title>
+      <link>https://arthurtl.github.io/thelambdadiary/homework1/</link>
+      <pubDate>Sun, 05 Dec 2021 16:29:07 +0100</pubDate>
+      
+      <guid>https://arthurtl.github.io/thelambdadiary/homework1/</guid>
+      <description>In his paper entitled &amp;lsquo;The Ultimate Display&amp;rsquo;, Ivan E. Sutherland described a future computer interface so advanced it could literally &amp;ldquo;control the existence of matter&amp;rdquo;. With this display, all that appears around us would not only look but also smell, taste and feel entirely real, the pioneer of extended reality explains. In fact, with appropriate programming, everything displayed would indeed be real insofar as it would take shape and could be interacted with as we would in the physical world - and with the same consequences -.</description>
+    </item>
+    
+    <item>
+      <title>About this website</title>
+      <link>https://arthurtl.github.io/thelambdadiary/lab1/</link>
+      <pubDate>Sat, 04 Dec 2021 14:41:24 +0100</pubDate>
+      
+      <guid>https://arthurtl.github.io/thelambdadiary/lab1/</guid>
+      <description>Setup This website was created using the static page generator Hugo.
+If you are able to see this image above, it means that I managed to not mess things up ! Learning how to generate a webpage using Hugo was straightforward enough, but choosing a theme that really suits me was much more tricky. This one is called Massively and I find its layout very pleasing. All the blog posts are made very apparent from the main page and, since I like making things a bit visual, I also love being able to customize the header pictures as well as the background.</description>
     </item>
     
   </channel>

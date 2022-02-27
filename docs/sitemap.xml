@@ -2,13 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ArthurTL.github.io/thelambdadiary/homework3/</loc>
+    <loc>https://arthurtl.github.io/thelambdadiary/homework4/</loc>
+    <lastmod>2022-01-31T12:03:34+01:00</lastmod>
+  </url><url>
+    <loc>https://arthurtl.github.io/thelambdadiary/lab5-2/</loc>
+    <lastmod>2022-01-18T11:33:40+01:00</lastmod>
+  </url><url>
+    <loc>https://arthurtl.github.io/thelambdadiary/lab5/</loc>
+    <lastmod>2022-01-08T14:27:12+01:00</lastmod>
+  </url><url>
+    <loc>https://arthurtl.github.io/thelambdadiary/homework3/</loc>
     <lastmod>2021-12-29T17:37:11+01:00</lastmod>
   </url><url>
-    <loc>https://ArthurTL.github.io/thelambdadiary/categories/</loc>
+    <loc>https://arthurtl.github.io/thelambdadiary/homework2/</loc>
+    <lastmod>2021-12-16T11:47:36+01:00</lastmod>
   </url><url>
-    <loc>https://ArthurTL.github.io/thelambdadiary/tags/</loc>
+    <loc>https://arthurtl.github.io/thelambdadiary/homework1/</loc>
+    <lastmod>2021-12-05T16:29:07+01:00</lastmod>
   </url><url>
-    <loc>https://ArthurTL.github.io/thelambdadiary/</loc>
+    <loc>https://arthurtl.github.io/thelambdadiary/lab1/</loc>
+    <lastmod>2021-12-04T14:41:24+01:00</lastmod>
+  </url><url>
+    <loc>https://arthurtl.github.io/thelambdadiary/categories/</loc>
+  </url><url>
+    <loc>https://arthurtl.github.io/thelambdadiary/tags/</loc>
+  </url><url>
+    <loc>https://arthurtl.github.io/thelambdadiary/</loc>
   </url>
 </urlset>

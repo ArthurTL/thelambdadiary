@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Building my Jetpack in VR : Part 2 &middot; The Lambda Diary</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="https://arthurtl.github.io/thelambdadiary/assets/css/main.min.css">
+		
+		
+		
+		<noscript><link rel="stylesheet" href='https://arthurtl.github.io/thelambdadiary/assets/css/noscript.css' /></noscript>
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='https://arthurtl.github.io/thelambdadiary/' class="logo">The Lambda Diary</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='https://arthurtl.github.io/thelambdadiary/'>The Lambda Diary</a></li>
+        
+        <li><a href='https://arthurtl.github.io/thelambdadiary/#footer'>Contact</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        <li><a href="https://www.instagram.com/arthurtranlambert/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+        
+        
+        <li><a href="https://www.linkedin.com/in/arthurtran-lambert/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        
+        
+        <li><a href="https://github.com/ArthurTL" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">January 18, 2022</span>
+                                
+                                <h1>Building my Jetpack in VR : Part 2</h1>
+                                <p>Let&#39;s put the actual R in VR.</p>
+                            </header>
+                            
+                            <div class="image main"><img src="https://arthurtl.github.io/thelambdadiary/images/vr.png" alt="" /></div>
+                            
+                            <p>Now that the main features are implemented in Unity, it is time to experiment with everything the VR offers!</p>
+<h3 id="1-the-controls">1. The controls</h3>
+<p>All things considered, I think it would be better if controlling the jetpack in VR required more than only pressing two types of triggers. I imagine it would remind the feeling of playing on a computer or a game console (where pressing buttons kind of magically makes things happens) too much, when it should require some &ldquo;immersive&rdquo; effort to pilot the engine. Also it would make it less confusing to remember how to turn left or right or which button is associated to which of the four thrusters etc&hellip; So I&rsquo;m thinking to keep the main index triggers to activate the upward thrusters only, while using the boosters to go forward/turn left or right will demand to move the two controllers forward. This is me trying these controls!</p>
+
+ 
+
+<video width=100% controls autoplay>
+    <source src="https://arthurtl.github.io/thelambdadiary/videos/demo.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+<p>Implementing this is a little more complicated than a keyboard to controller button mapping (at least for the boosters) but only demands to detect the hand z-position when the hand trigger is first pressed (which I ultimately used but this one should then stay pressed to signify &ldquo;I&rsquo;m holding this handle&rdquo;) then tracking the offset in this direction.</p>
+<p><img src="https://arthurtl.github.io/thelambdadiary/images/code_5.png" alt="Code 5" title="Code 5"></p>
+<p>I&rsquo;m also moving the position of the handle object on the jetpack (&quot;<em>rightHandle</em>&quot;) to go with the hand when it moves to better visualize our action on the jetpack and give some kind of feedback.</p>
+<p>Talking about feedback, one thing I really look forward to adding is <strong>haptic feedbacks</strong> to have the controllers vibrate increasingly when the thrusters are fired, which should replace nicely this jittering effect I wanted to have earlier but that didn&rsquo;t work without VR. <em>Feeling</em> the engine of the jetpack working each time we press a trigger should add a lot to realism and therefore greatly enhance the presence of my locomotion.
+But first, it&rsquo;s finally time to test how well my jetpack is working in VR!</p>
+<h3 id="2-fixin-things">2. Fixin' things</h3>
+
+ 
+
+<video width=100% controls>
+    <source src="https://arthurtl.github.io/thelambdadiary/videos/fail.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+<p>Well, my first experience of the VR jetpack was&hellip; stomach-turning so to speak. There are many things that don&rsquo;t <em>feel</em> the same way when wearing an Occulus. Above all, the speeds matters a lot more : didn&rsquo;t seem like so from the outside, but the thrusters are in fact too powerful and it really feels sickening/disorienting when you are propelled into the air unrealisticly quickly (and even worse when you are experiencing free fall from high up!) or when you rotate around yourself too switfly. So first thing to do is to bring those values <strong>down</strong> a bit so that I can test my locomotion for more than 10 seconds. It demands a lot of tweaking with the parameters and multiplying by some constant here and there while having to rebuild the application each time to test it (as I can&rsquo;t use the occulus link with my laptop), but I think I managed to make it work. Or maybe I&rsquo;ve just grown more accustomed to it. We&rsquo;ll have to see during the evaluation phase.</p>
+<p>Haptics and sounds will also definitely help to embed some movements in reality and give us a better sense of control over what we are doing (not feel like we are just magically and randomly floating in the air). After searching online a bit, I am relieved to learn that implementing and setting controller vibrations is fairly easy. Here&rsquo;s how I&rsquo;m doing it:</p>
+<p><img src="https://arthurtl.github.io/thelambdadiary/images/code_6.png" alt="Code 6" title="Code 6"></p>
+<p>And the same thing for the right controller. The &ldquo;if&rdquo; statements are here to ensure that I&rsquo;m not calling the <em>SetControllerVibration</em> method each frame (which makes it bug) and deactivate them when nothing is pressed. The frequency of the vibration is different whether the booster or thruster is active, and the amplitude is equal to their intensity (<em>triggerValue</em>) clamped between 0 and 1.
+I also found some cool thrusters/rocket sound effects that will play whenever a trigger is pressed and stop when everything is released!</p>
+<p><img src="https://arthurtl.github.io/thelambdadiary/images/code_7.png" alt="Code 7" title="Code 7"></p>
+<p>Last thing, I&rsquo;m also changing some things in the parkour (it is not so adapted for my locomotion). I will move some coins up to add a bit of verticality and let the player get the most out of the jetpack&rsquo;s capabilities. Why having a cool jetpack if it is not to go high up in the air and fly like a bird?
+I&rsquo;m also</p>
+
+ 
+
+<video width=100% controls>
+    <source src="https://arthurtl.github.io/thelambdadiary/videos/win.mp4" type="video/mp4">
+    Your browser does not support the video tag.  
+</video>
+
+
+
+
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        <section>
+            <h3>Email</h3>
+            <p><a href="mailto:arthur.lambert@telecom-paris.fr">arthur.lambert@telecom-paris.fr</a></p>
+        </section>
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                <li><a href="https://www.instagram.com/arthurtranlambert/" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+                
+                
+                <li><a href="https://www.linkedin.com/in/arthurtran-lambert/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                
+                
+                <li><a href="https://github.com/ArthurTL" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; The Lambda Diary</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Hugo Port: <a href="https://curtistimson.co.uk">curttimson</a></li></ul>
+</div>
+
+
+            </div>
+            
+            
+
+
+
+
+
+
+
+
+
+
+<script src='https://arthurtl.github.io/thelambdadiary/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>

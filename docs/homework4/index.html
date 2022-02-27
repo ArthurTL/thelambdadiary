@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Evaluating my VR locomotion &middot; The Lambda Diary</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		
+		
+		<link rel="stylesheet" href="https://arthurtl.github.io/thelambdadiary/assets/css/main.min.css">
+		
+		
+		
+		<noscript><link rel="stylesheet" href='https://arthurtl.github.io/thelambdadiary/assets/css/noscript.css' /></noscript>
+	</head>
+
+	<body lang='en' class="is-preload">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='https://arthurtl.github.io/thelambdadiary/' class="logo">The Lambda Diary</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='https://arthurtl.github.io/thelambdadiary/'>The Lambda Diary</a></li>
+        
+        <li><a href='https://arthurtl.github.io/thelambdadiary/#footer'>Contact</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        
+        
+        <li><a href="https://www.instagram.com/arthurtranlambert/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+        
+        
+        <li><a href="https://www.linkedin.com/in/arthurtran-lambert/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        
+        
+        <li><a href="https://github.com/ArthurTL" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">January 31, 2022</span>
+                                
+                                <h1>Evaluating my VR locomotion</h1>
+                                <p>Time to put my jetpack to the test!</p>
+                            </header>
+                            
+                            <div class="image main"><img src="https://arthurtl.github.io/thelambdadiary/images/evaluation.png" alt="" /></div>
+                            
+                            <p>I&rsquo;ve sent my apk to two classmates and also invited some friends to test my VR jetpack at home, here we will discuss about some results and feedback I&rsquo;ve gotten!</p>
+<h3 id="1-data-and-procedure">1. Data and procedure</h3>
+<p>Before taking any measure, let&rsquo;s take a step back and remind ourselves what are the goals of my VR locomotion design: I&rsquo;ve chosen a continous, free type of locomotion to increase <strong>presence</strong>, but also took care of finding a way to reduce <strong>motion sickness</strong> and <strong>fatigue</strong> by some means(such as playing seated). These are three variables that will be evaluated during after testing by a subjective rate ranging from 1 to 10 along with <strong>fun</strong>, which is also one of the main reasons to use these locomotions in VR in the first place :). Speed or maneuverability are other, more practical variables that must be considered as well and will be measured directly with in-game data (time per round and number of coins collected), although they aren&rsquo;t something I am really trying to <em>maximize</em>. Indeed, they give us insight about the performance of my locomotion <em>but</em> they came secondary in my design choices (a jetpack is not something I would have implemented if I wanted to make something really fast, let alone easy to drive). I am also expecting some kind of noticeable learning curve, meaning I would not expect someone trying the VR jetpack for the first time to get efficient results. This is even intentional: I think it can be part of the fun to learn to master something a bit more challenging than using joystick, and being gratified for practicing. Anyway it won&rsquo;t surprise me if I, as the creator of the locomotion, get largely different results after spending hours tinkering it and get used to its motion than other testers.</p>
+<p>The procedure will be the same for everyone : after 2 minutes of exposure to discover and learn the basic commands, each participant will have 10 minutes to finish the VR parkour while collecting coins, after what their in game data will be collected and they will be presented a small questionnaire to assess the 4 criteria mentionned earlier. They will finally be invited to leave any additional feedback as open comments.</p>
+<h3 id="2-results">2. Results</h3>
+<p>Here are some interesting findings that I had: first, I think it is safe to say that the <em>presence</em> is pretty on point. Of all the locomotion presented in class, mine has been evaluated as having the highest amount of it with someone even rating it 10 out of 10, but that seems to come at a huge cost: it is also leading in the sickness category.</p>
+<p><img src="https://arthurtl.github.io/thelambdadiary/images/presence.jpg" alt="Presence graph" title="Presence Graph">
+<img src="https://arthurtl.github.io/thelambdadiary/images/sickness.jpg" alt="Motion sickness graph" title="Motion sickness Graph"></p>
+<p>Turns out that reducing body movements and using a &ldquo;stable&rdquo; vehicle type of locomotion isn&rsquo;t enough to prevent the uncomfortable dizziness of being in a simulator. From the feedbacks I&rsquo;ve gotten and from my own experience, what really makes it kick in is when you are free-falling from a high place or when you are &ldquo;rolling&rdquo; too much, that is when your almost lying horizontal in VR while you are sitting upright in real life. It is these kind of <strong>discontinuities</strong> between R in VR or <strong>high gradients</strong> in position and rotation that should be avoided if we want to have a smooth experience.</p>
+<p>Another interesting -but predicted- result is the time it took for participants to finish the parkour, as compared to mine.</p>
+<p><img src="https://arthurtl.github.io/thelambdadiary/images/time.jpg" alt="Time graph" title="Time Graph"></p>
+<p>No real suprise here then, since my own data was taken after I had time to practice and master the locomotion that I designed <em>myself</em> (I completed more than a dozen of rounds before that, with gradually better results), so that explains the huge gap. What was less expected however, is the cause their struggle to finish the parkour had on their <em>enjoyment</em>.</p>
+<p><img src="https://arthurtl.github.io/thelambdadiary/images/fun.jpg" alt="Fun graph" title="Fun Graph"></p>
+<p>This is due to 1) the motion sickness caused by the initial lack of control of the jetpack and 2) the frustration of not being able to handle it accurately during the parkour (it is important to note that the average number of collected coins is the same than in other&rsquo;s locomotion, meaning that the testers also added some difficulty by taking care of not missing one). They had to use the <em>hover</em> mode a lot, which reduces speed (and a bit consequently, <em>fun</em>). However, I also think that evaluating the overall enjoyment potential of the jetpack requires more than judging the first 10 minutes of practice, especially when the user hasn&rsquo;t grown accustomed to it OR did not fully understand how it was meant to be used (because the test was done remotely, the instructions weren&rsquo;t as clear as I would have wanted). The reward comes after that, and I can say in all good faith that I am quite having fun swiftly flying from buiding to building in VR !</p>
+<p>But I understand that the control are not as intuitive to others as they should be, and by observing the movements that some of my friends made when discovering the jetpack I came up with alternatives. For example, instead of only being able to move the controllers forward or back and turning by having to move only one of them (which is the greatest source of difficulties) one should be able to rotate simply by rotating the controllers in the wanted direction, or tilt them like a joystick (a bit like Rached&rsquo;s <em>Heliboy</em>). This would simplify some of the locomotion mechanics while still being a realisitc way to control the engine. What&rsquo;s more, it would also be <strong>less tiring</strong>: indeed my locomotion came up more exhausting than intended, because even if I took care to restrict the amount of movements I didn&rsquo;t realise how taxing it could be for the arms to stay motionless <em>while</em> being stretched out. Because of that, the average <em>fatigue</em> grade is a <strong>7</strong> which shows that overlooking this aspect (I often did not test it for more than 2-3 minutes when implementing it) has major consequences on playability!</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>To sum it up, it seems that these non-(or not sufficiently) intuitive commands is at the core of most of the drawbacks of the jetpack. Even if it would make it less rewarding to master, simplifying them to make them better match what we are accustomed to in current video games would not only reduce tiredness but also help the users reach better results quicker, thus improving their fun, as well as allowing them more control and therefore preventing extreme situations leading to a high amount of sickness (also good for fun).
+So, if I am led in the future to improve the model or even implement a similar device, I already know the first thing to fix!</p>
+
+
+                            
+                            
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        <section>
+            <h3>Email</h3>
+            <p><a href="mailto:arthur.lambert@telecom-paris.fr">arthur.lambert@telecom-paris.fr</a></p>
+        </section>
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                
+                
+                <li><a href="https://www.instagram.com/arthurtranlambert/" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+                
+                
+                <li><a href="https://www.linkedin.com/in/arthurtran-lambert/" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                
+                
+                <li><a href="https://github.com/ArthurTL" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; The Lambda Diary</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Hugo Port: <a href="https://curtistimson.co.uk">curttimson</a></li></ul>
+</div>
+
+
+            </div>
+            
+            
+
+
+
+
+
+
+
+
+
+
+<script src='https://arthurtl.github.io/thelambdadiary/assets/js/bundle.js'></script>
+
+
+	</body>
+</html>
