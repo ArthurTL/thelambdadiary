@@ -1,6 +1,6 @@
-baseURL = 'https://arthurtl.github.io/lambdaDiary/'
+baseURL = 'https://arthurtl.github.io/thelambdadiary/'
 languageCode = 'en-us'
 title = 'The Lambda Diary'
 theme = 'hugo-theme-massively'
-canonifyURLs = false
+canonifyURLs = true
 publishDir = "docs"
