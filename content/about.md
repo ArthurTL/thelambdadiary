@@ -5,7 +5,7 @@ slug: 'lab1'
 image: 'images/bg.png'
 description : 'Little time to set up, a lot more to make it mine.'
 disableComments : true 
-draft: true
+draft: false
 ---
 ## Setup
 This website was created using the static page generator Hugo. 

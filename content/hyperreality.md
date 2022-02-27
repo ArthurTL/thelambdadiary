@@ -5,7 +5,7 @@ slug: 'homework2'
 image: 'images/hyperreality.png'
 description : '"Hyper-Reality presents a provocative and kaleidoscopic new vision of the future, where physical and virtual realities have merged, and the city is saturated in media."'
 disableComments : true 
-draft: true
+draft: false
 ---
 
 Watching Keiichi Matsuda's video "HYPER-REALITY" (https://www.youtube.com/watch?v=YJg02ivYzSs) was as fascinating as it was utterly chilling. The top-notch editing definitively helped to sell me on the likelihood of a future with technology so ubiquitous that we would constantly see the world through Mixed Reality (and all the dangers that comes with it). The abuses really are numerous in this video, but let's try to find some other scenarios where such technology could create *massive* problems.

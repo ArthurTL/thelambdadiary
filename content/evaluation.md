@@ -5,7 +5,7 @@ image: 'images/evaluation.png'
 description : 'Time to put my jetpack to the test!'
 disableComments : true 
 slug: 'homework4'
-draft: true
+draft: false
 ---
 
 I've sent my apk to two classmates and also invited some friends to test my VR jetpack at home, here we will discuss about some results and feedback I've gotten!

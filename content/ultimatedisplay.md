@@ -5,7 +5,7 @@ slug: 'homework1'
 image: 'images/matrix.jpg'
 description : '"With appropriate programming such a display could literally be the Wonderland into which Alice walked."'
 disableComments : true 
-draft: true
+draft: false
 ---
 
 In his paper entitled 'The Ultimate Display', Ivan E. Sutherland described a future computer interface so advanced it could literally "control the existence of matter". With this display, all that appears around us would not only look but also smell, taste and *feel* entirely real, the pioneer of extended reality explains. In fact, with appropriate programming, everything displayed would indeed be real insofar as it would take shape and could be interacted with as we would in the physical world - and with the same consequences -. More than a mere replica of the world, this ultimate display could also provide additional knowledge and visual representations of things as they are not bound by the laws of the one we actually live in. A real Alice's Wonderland, as he puts it.

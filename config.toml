@@ -1,4 +1,4 @@
-baseURL = 'https://ArthurTL.github.io/thelambdadiary/'
+baseURL = 'https://arthurtl.github.io/thelambdadiary/'
 languageCode = 'en-us'
 title = 'The Lambda Diary'
 theme = 'hugo-theme-massively'

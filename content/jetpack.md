@@ -5,7 +5,7 @@ slug: 'lab5'
 image: 'images/jetpack_part1.png'
 description : 'Or my attempt at implementing a new, non sickness-inducing type of continuous virtual locomotion.'
 disableComments : true 
-draft: true
+draft: false
 ---
 
 Of the three locomotion proposals I made in my last post, I found the jetpack the most interesting to actually implement. Using Unity's physics engine, there is something very fun to create and tweak here and I'm curious to know if it is really possible to minimize motion sickness using this setup. So let's start coding !

@@ -5,7 +5,7 @@ slug: 'lab5-2'
 image: 'images/vr.png'
 description : "Let's put the actual R in VR."
 disableComments : true 
-draft: true
+draft: false
 ---
 
 Now that the main features are implemented in Unity, it is time to experiment with everything the VR offers!
