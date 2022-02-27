@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>The Lambda Diary</title>
-    <link>https://ArthurTL.github.io/lambdaDiary/</link>
+    <link>https://arthurtl.github.io/lambdaDiary/</link>
     <description>Recent content on The Lambda Diary</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://ArthurTL.github.io/lambdaDiary/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://arthurtl.github.io/lambdaDiary/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Locomotion in VR</title>
-      <link>https://ArthurTL.github.io/lambdaDiary/homework3/</link>
+      <link>https://arthurtl.github.io/lambdaDiary/homework3/</link>
       <pubDate>Wed, 29 Dec 2021 17:37:11 +0100</pubDate>
       
-      <guid>https://ArthurTL.github.io/lambdaDiary/homework3/</guid>
+      <guid>https://arthurtl.github.io/lambdaDiary/homework3/</guid>
       <description>There are two main ways with which we can approach locomotion in VR: teleportation or &amp;lsquo;free&amp;rsquo; movement. While the latter is more immersive, it also induces more motion sickness so every locomotion design will contain a trade-off between the two. Today I will propose three of them: one of each type as well as one that combines both in some way.
 1.The Dash Gun Teleportation in VR can have two major drawbacks, depending on game design choices.</description>
     </item>

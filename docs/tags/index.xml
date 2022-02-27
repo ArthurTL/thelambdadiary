@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on The Lambda Diary</title>
-    <link>https://ArthurTL.github.io/lambdaDiary/tags/</link>
+    <link>https://arthurtl.github.io/lambdaDiary/tags/</link>
     <description>Recent content in Tags on The Lambda Diary</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://ArthurTL.github.io/lambdaDiary/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://arthurtl.github.io/lambdaDiary/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
